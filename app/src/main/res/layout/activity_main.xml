@@ -42,5 +42,12 @@
         android:gravity="center"/>
 
 
+    <com.example.kev.compoundcontroltest.compoundComponents.HapiTextEntry
+        android:id="@+id/hapi_form_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"/>
+
 </LinearLayout>
 
