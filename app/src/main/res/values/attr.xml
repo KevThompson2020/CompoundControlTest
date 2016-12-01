@@ -1,0 +1,17 @@
+<resources>
+
+    <!--SideSpinner-->
+    <declare-styleable name="SideSpinner">
+        <attr name="values" format="reference" />
+
+        <!-- any custom attributes -->
+        <attr name="title" format="string" />
+    </declare-styleable>
+
+
+    <!--HAPI form date entry-->
+    <declare-styleable name="HapiTextEntry">
+        <attr name="hapi_title" format="string" />
+    </declare-styleable>
+
+</resources>
