@@ -4,44 +4,43 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.kev.compoundcontroltest.R;
 
 /**
- * Created by Kev on 29/11/2016.
+ * Created by Kev on 01/12/2016.
  */
 
-public class HapiTextEntry  extends LinearLayout {
 
-    String hintText = "";
-    String warningText = "";
+
+public class HapiSubHeader extends LinearLayout {
+
+    String subHeaderText = "";
 
     /**
-     * Basic Constructor
+     * default constructor
      * @param context
      */
-    public HapiTextEntry(Context context) {
+    public HapiSubHeader(Context context) {
         super(context);
         initializeViews(context);
     }
 
     /**
      * Constructor with attributes
+     *
      * @param context
      * @param attrs
      */
-    public HapiTextEntry(Context context, AttributeSet attrs) {
+    public HapiSubHeader(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.HapiTextEntry, 0, 0);
 
         try {
-            hintText = a.getString(R.styleable.HapiTextEntry_hint);
-            warningText = a.getString(R.styleable.HapiTextEntry_warning_text);
+            subHeaderText = a.getString(R.styleable.HapiSubHeader_title);
         } finally {
             a.recycle();
         }
@@ -51,10 +50,11 @@ public class HapiTextEntry  extends LinearLayout {
 
     /**
      * Constructor with attributes and style.
+     *
      * @param context
      * @param attrs
      */
-    public HapiTextEntry(Context context, AttributeSet attrs, int defStyle) {
+    public HapiSubHeader(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         initializeViews(context);
     }
@@ -66,28 +66,22 @@ public class HapiTextEntry  extends LinearLayout {
      */
     private void initializeViews(Context context) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.hapi_form_data_entry, this);
+        inflater.inflate(R.layout.hapi_form_sub_header, this);
     }
 
 
+    /**
+     * populate items from the passed in attributes once the inflate is finished,  else there will be crashes when trying
+     * to access the items
+     */
     @Override
     protected void onFinishInflate() {
 
         // When the controls in the layout are doing being inflated, set
         // the callbacks for the side arrows.
         super.onFinishInflate();
-
-        // Text Entry Box.
-        TextView textEntry = (TextView) findViewById(R.id.text_entry_box);
-        if (textEntry != null) {
-            textEntry.setHint(hintText);
-        }
-
-        // Warning Text
-        TextView errorView = (TextView) findViewById(R.id.error_textview);
-        if (errorView != null) {
-            errorView.setText(warningText);
-        }
-
+        TextView t = (TextView) findViewById(R.id.sub_header);
+        t.setText(subHeaderText);
     }
 }
+

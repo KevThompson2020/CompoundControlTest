@@ -1,0 +1,19 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/sub_header"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:textColor="@color/three_maggie"
+            android:textSize="14sp"
+            android:gravity="center_vertical"
+            android:background="@color/three_none"
+            android:fontFamily="sans-serif-medium"
+            android:text="Sub header to be passed in"/>
+
+    </LinearLayout>
+</merge>
